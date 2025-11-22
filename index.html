@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人AI作品集 - 古风韵味</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+</head>
+<body>
+    <!-- Vanta.js 背景容器 -->
+    <div id="vanta-background"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="scroll-fade">
+            <h1 class="gradient-text glitch-effect" data-text="AI作品集">AI作品集</h1>
+            <p class="subtitle">✦ 古韵今声 · 智慧织梦 ✦</p>
+            <p class="description">融合传统美学与人工智能的数字艺术空间</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="cards-container">
+
+            <!-- Snake Game Card -->
+            <div class="card scroll-fade">
+                <div class="card-header">
+                    <h3 class="card-title">🐍 贪吃蛇</h3>
+                    <span class="badge badge-red">经典游戏</span>
+                </div>
+                <p class="card-description">
+                    传统游戏的现代演绎，操控灵蛇穿梭于数字世界，挑战你的反应与策略。
+                </p>
+                <div class="card-features">
+                    <p>🎮 使用方向键控制</p>
+                    <p>🏆 吃掉食物获得分数</p>
+                    <p>⚡ 速度随分数递增</p>
+                </div>
+                <button class="btn-primary" onclick="openGame()">开始游戏</button>
+            </div>
+
+            <!-- AI Drawing Card (Placeholder) -->
+            <div class="card scroll-fade card-disabled">
+                <div class="card-header">
+                    <h3 class="card-title card-title-jade">🎨 AI绘画</h3>
+                    <span class="badge badge-jade">敬请期待</span>
+                </div>
+                <p class="card-description">
+                    以AI之笔，绘千山万水，描绘东方意境之美。
+                </p>
+                <div class="card-features">
+                    <p>🖌️ 水墨风格生成</p>
+                    <p>🌸 古风人物创作</p>
+                    <p>🏔️ 山水画智能绘制</p>
+                </div>
+                <button class="btn-disabled" disabled>即将推出</button>
+            </div>
+
+            <!-- AI Poetry Card (Placeholder) -->
+            <div class="card scroll-fade card-disabled">
+                <div class="card-header">
+                    <h3 class="card-title card-title-blue">📝 AI诗词</h3>
+                    <span class="badge badge-blue">敬请期待</span>
+                </div>
+                <p class="card-description">
+                    以AI悟禅机，承千年诗韵，作当代华章。
+                </p>
+                <div class="card-features">
+                    <p>📜 自动生成古诗词</p>
+                    <p>🎭 多种诗词体裁</p>
+                    <p>✨ 意境智能匹配</p>
+                </div>
+                <button class="btn-disabled" disabled>即将推出</button>
+            </div>
+
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section scroll-fade">
+            <div class="about-content">
+                <h2 class="about-title">关于此作品集</h2>
+                <p class="about-text">
+                    这是一个将中国传统美学与现代AI技术完美融合的数字作品集。
+                    在这里，古典与未来交织，传统与创新共舞。
+                </p>
+                <p class="about-tech">
+                    采用 HTML5 + CSS3 + JavaScript 打造，支持响应式设计，完美适配各种设备
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 AI作品集 · 匠心独运 · 技艺传承</p>
+    </footer>
+
+    <!-- Snake Game Modal -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeGame()">✕</button>
+            <div class="game-container">
+                <div class="game-header">
+                    <h2 class="game-title">贪吃蛇</h2>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">得分:</span>
+                            <span id="score" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">速度:</span>
+                            <span id="speed" class="stat-value">1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="canvas-wrapper">
+                    <canvas id="game-canvas" width="400" height="400"></canvas>
+                </div>
+
+                <div id="game-over" class="game-over hidden">
+                    <div class="game-over-text">游戏结束！</div>
+                    <div class="final-score">最终得分: <span id="final-score">0</span></div>
+                </div>
+
+                <div id="game-paused" class="game-paused hidden">
+                    <div class="paused-text">暂停中</div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="reset-btn" class="btn-game btn-reset" onclick="resetGame()">重新开始</button>
+                    <button id="pause-btn" class="btn-game btn-pause" onclick="togglePause()">暂停</button>
+                </div>
+
+                <div class="game-instructions">
+                    <p>💻 电脑: 使用方向键控制 · 空格键暂停</p>
+                    <p>📱 手机: 在画布上滑动控制方向</p>
+                    <p>🎯 目标: 吃掉绿色食物获得分数</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
