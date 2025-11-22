@@ -38,7 +38,7 @@ npm install
 npm run dev
 ```
 
-访问 `http://localhost:3000` 查看网站
+访问 `http://menina-ai.xyz` 查看网站
 
 ### 构建生产版本
 
